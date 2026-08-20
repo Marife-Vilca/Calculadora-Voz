@@ -1,0 +1,73 @@
+.lista-historial {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.historial-vacio {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 30px 0;
+}
+
+.historial-item {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.historial-item-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.historial-fecha { font-size: 0.8rem; color: var(--text-muted); }
+
+.historial-total {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--brand-primary);
+}
+
+.historial-cinta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.historial-item-botones {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-grande {
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.btn-secundario {
+  background-color: var(--bg-card-alt);
+  color: var(--text-main);
+  border: 2px solid var(--border-dark);
+}
+.btn-secundario:hover { background-color: #e2e8f0; }
+
+.btn-peligro {
+  background-color: #fef2f2;
+  color: var(--accent-red);
+  border: 2px solid #fecaca;
+}
+.btn-peligro:hover { background-color: #fee2e2; }
+
+.btn-fila { display: flex; gap: 10px; }

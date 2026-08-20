@@ -1,0 +1,91 @@
+.cinta-calculo {
+  max-height: 130px;
+  overflow-y: auto;
+  background-color: var(--bg-card-alt);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cinta-vacia {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 6px 0;
+}
+
+.cinta-linea {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-align: right;
+}
+
+.btn-leer-todo {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #f0fdf4;
+  border: 2px solid #bbf7d0;
+  color: #166534;
+  font-weight: 800;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-leer-todo:hover { background-color: #dcfce7; }
+
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.tecla {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-card-alt);
+  color: var(--text-main);
+  transition: transform 0.05s, opacity 0.15s;
+}
+
+.tecla:active { transform: scale(0.92); opacity: 0.85; }
+
+.tecla-cero {
+  grid-column: span 2;
+  aspect-ratio: unset;
+  border-radius: 999px;
+}
+
+.tecla-operador {
+  background-color: var(--brand-primary);
+  color: #fff;
+  font-size: 1.7rem;
+}
+
+.tecla-operador:hover { background-color: var(--brand-primary-dark); }
+
+.tecla-funcion {
+  background-color: #fee2e2;
+  color: var(--accent-red);
+  font-size: 1.2rem;
+}
+
+.tecla-igual {
+  background-color: var(--accent-green);
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.tecla-igual:hover { background-color: #15803d; }

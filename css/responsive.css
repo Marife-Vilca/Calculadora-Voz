@@ -1,0 +1,7 @@
+@media (max-width: 380px) {
+  html { font-size: 15px; }
+  .pantalla { padding: 12px; gap: 10px; }
+  .tarjeta { padding: 12px; }
+  .display-principal { font-size: 2.2rem; }
+  .tecla { font-size: 1.25rem; }
+}
