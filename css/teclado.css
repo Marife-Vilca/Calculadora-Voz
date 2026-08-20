@@ -1,5 +1,5 @@
 .cinta-calculo {
-  max-height: 130px;
+  max-height: 160px;
   overflow-y: auto;
   background-color: var(--bg-card-alt);
   border: 1px solid var(--border-color);
@@ -7,7 +7,7 @@
   padding: 10px 14px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .cinta-vacia {
@@ -18,10 +18,15 @@
 }
 
 .cinta-linea {
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--text-main);
   text-align: right;
+}
+
+.cinta-linea-actual {
+  color: var(--brand-primary);
+  font-style: italic;
 }
 
 .btn-leer-todo {

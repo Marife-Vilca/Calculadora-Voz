@@ -15,6 +15,14 @@ function actualizarEstado(nuevoEstado) {
   renderCalculadora();
 }
 
+/** El número que se está escribiendo pero todavía no se confirmó con +, −, ×, ÷ o =. */
+function numeroEnCurso(estado) {
+  const { pantalla, esperandoNuevoNumero } = estado;
+  if (esperandoNuevoNumero) return null;
+  if (pantalla === "0" || pantalla === "Error") return null;
+  return pantalla;
+}
+
 export function renderCalculadora() {
   const { pantalla, valorAnterior, operadorPendiente, cinta } = state.calculadora;
 
@@ -26,13 +34,21 @@ export function renderCalculadora() {
       ? `${formatearNumero(valorAnterior)} ${operadorPendiente}`
       : "";
 
+  const enCurso = numeroEnCurso(state.calculadora);
   const contenedorCinta = document.getElementById("cinta-calculo");
-  if (cinta.length === 0) {
+
+  if (cinta.length === 0 && enCurso === null) {
     contenedorCinta.innerHTML = `<p class="cinta-vacia">Aquí verás cada número que vayas ingresando.</p>`;
-  } else {
-    contenedorCinta.innerHTML = cinta.map((linea) => `<div class="cinta-linea">${linea}</div>`).join("");
-    contenedorCinta.scrollTop = contenedorCinta.scrollHeight;
+    return;
   }
+
+  const filasConfirmadas = cinta.map((linea) => `<div class="cinta-linea">${linea}</div>`).join("");
+  const filaEnCurso = enCurso !== null
+    ? `<div class="cinta-linea cinta-linea-actual">${enCurso}</div>`
+    : "";
+
+  contenedorCinta.innerHTML = filasConfirmadas + filaEnCurso;
+  contenedorCinta.scrollTop = contenedorCinta.scrollHeight;
 }
 
 function manejarTeclaDigito(digito) {
@@ -112,10 +128,13 @@ export function configurarCalculadora() {
 
   document.getElementById("btn-leer-cinta").addEventListener("click", (evento) => {
     const { cinta } = state.calculadora;
-    if (cinta.length === 0) {
+    const enCurso = numeroEnCurso(state.calculadora);
+    const lineas = enCurso !== null ? [...cinta, `${enCurso}, sin confirmar todavía`] : cinta;
+
+    if (lineas.length === 0) {
       leerTexto("Todavía no ingresaste ningún número.", evento.currentTarget);
       return;
     }
-    leerTexto(cinta.join(". "), evento.currentTarget);
+    leerTexto(lineas.join(". "), evento.currentTarget);
   });
 }
